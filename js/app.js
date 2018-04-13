@@ -31,6 +31,12 @@ function shuffle(array) {
     return array;
 }
 
+window.onload = start();
+
+function start () {
+	cards = shuffle(cardArray);
+}
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
