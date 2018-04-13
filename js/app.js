@@ -1,7 +1,7 @@
-//Set up the DOM
+//Set up the varibles
 
 let card = document.querySelectorAll('.card');
-let cardArray = Array.from(card);
+let cards = Array.from(card);
 
 const restart = document.querySelector('.restart');
 const deck =  document.querySelector('.deck');
@@ -15,6 +15,8 @@ let matchedCards = [];
 //  *   - loop through each card and create its HTML
 //  *   - add each card's HTML to the page
 //  
+
+startGame ()
 
 // // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -35,8 +37,12 @@ window.onload = start();
 
 function start () {
 	cards = shuffle(cardArray);
-}
 
+	for (let i = 0; i < cards.length; i++) {
+		cards[i].classList.remove('open', 'show', 'match');
+			deck.appendChild(cards[1]);
+	}
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -48,3 +54,14 @@ function start () {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ deck.addEventListener('click', function(evt)) {
+ 	if (evt.target.className === "card" && openedCards.length < 2) {
+ 		display (evt);
+ 		addToOpenedCards(evt);
+ 	} else {
+ 		evt.stopPropagation();
+ 	};
+ });
+ 	}
+ }
