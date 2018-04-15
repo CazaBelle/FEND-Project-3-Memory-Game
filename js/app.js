@@ -25,25 +25,51 @@ document.querySelector(".playAgain").addEventListener("click", function() {
 //  *   - add each card's HTML to the page
 //  
 
+//Unlocks clicked cards
+
 function cardOpen(evt) {
 	if (evt.target.className =="card" && cardCounter != 2) {
 		evt.target.className += "open show";
 	
+//Determines card order when unlocked
 
+if (card1 == false) {
+	card1 = evt.target.firstElementChild.className; 
+	card1Parent = evt.target; 
+	cardCounter = 1; 
+} else {
+	document.querySelector(".moves").innerText = +document.querySelector(".moves").innerText + 1;
 
+//rating systems start decrease depending on number of moves 
+  
+  if (document.querySelector(".moves").innerText == '16' || document.querySelector(".moves").innerText == '22') {
+        document.querySelector(".fa-star").parentNode.removeChild(document.querySelector(".fa-star"));
+      }
 
+      card2 = evt.target.firstElementChild.className; 
+      card2Partent =evt.target; 
+      cardcounter = 2; 
 
+      //card matching
 
-
-
+      if (card1 == card2) {
+      	card1Parent.className = "card open show match";
+      	card2Parent.className = "card open show match";
+      	card1 = '';
+      	card 2 = '';
+      	cardCounter = 0; 
+      	win ();
+     }else 
+     	setTimeout(function() {
+     		evt.taget.className = "card close"; card1Parent.className = "card close"}, 700);
+     	setTimeout(function () {
+     		evt.target.className = "card"; card1Parent.className = "card";
+     				card1 = ''; card2 = ''; cardCounter = 0}, 900);
+     	}
+     }
+ready = false; 
 
 	}
-
-
-
-
-
-
 
 }
 
