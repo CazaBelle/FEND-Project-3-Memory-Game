@@ -1,13 +1,22 @@
+console.log ('jsfileloaded');
+
+alert ('jsfileloaded');
+
 //Set up the varibles
 
-let card = document.querySelectorAll('.card');
-let cards = Array.from(card);
+let card1 = '';
+let card2 = '';
+let card1Parent = '';
+let card2Parent = '';
+let ready = true; 
+let stopTimer = false;
+let cardcounter = 0; 
 
-const restart = document.querySelector('.restart');
-const deck =  document.querySelector('.deck');
-
-let openedCards = [];
-let matchedCards = [];
+document.querySelector(".restart").addEventListener("click", restart);
+document.querySelector(".deck").addEventListener("click", function(){stopTimer = false; timerStart()});
+document.querySelector(".deck").addEventListener("click", cardOpen);
+document.querySelector(".playAgain").addEventListener("click", function() {
+		document.querySelector(".winPage").className = "winPage closed"; restart()}); 
 
 
 //  * Display the cards on the page
@@ -16,7 +25,28 @@ let matchedCards = [];
 //  *   - add each card's HTML to the page
 //  
 
-startGame ()
+function cardOpen(evt) {
+	if (evt.target.className =="card" && cardCounter != 2) {
+		evt.target.className += "open show";
+	
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+}
+
 
 // // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -33,16 +63,6 @@ function shuffle(array) {
     return array;
 }
 
-window.onload = start();
-
-function start () {
-	cards = shuffle(cardArray);
-
-	for (let i = 0; i < cards.length; i++) {
-		cards[i].classList.remove('open', 'show', 'match');
-			deck.appendChild(cards[1]);
-	}
-};
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -54,14 +74,3 @@ function start () {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
- deck.addEventListener('click', function(evt)) {
- 	if (evt.target.className === "card" && openedCards.length < 2) {
- 		display (evt);
- 		addToOpenedCards(evt);
- 	} else {
- 		evt.stopPropagation();
- 	};
- });
- 	}
- }
