@@ -12,11 +12,10 @@ let ready = true;
 let stopTimer = false;
 let cardCounter = 0; 
 
+
 document.querySelector(".restart").addEventListener("click", restart);
-document.querySelector(".deck").addEventListener("click", function(){stopTimer = false; timerStart()});
+document.querySelector(".deck").addEventListener("click", function() {stopTimer = false; timerStart()});
 document.querySelector(".deck").addEventListener("click", cardOpen);
-//document.querySelector(".playAgain").addEventListener("click", function() {
- // document.querySelector(".winPage").className = "winPage closed"; restart()}); 
 
 
 //  * Display the cards on the page
@@ -29,7 +28,7 @@ document.querySelector(".deck").addEventListener("click", cardOpen);
 
 function cardOpen(evt) {
 	if (evt.target.className =="card" && cardCounter != 2) {
-		evt.target.className += "open show";
+		evt.target.className += " open show";
 	
 //Determines card order when unlocked
 
@@ -47,7 +46,7 @@ if (card1 == false) {
       }
 
       card2 = evt.target.firstElementChild.className; 
-      card2Partent =evt.target; 
+      card2Parent =evt.target; 
       cardCounter = 2; 
 
       //card matching
@@ -78,7 +77,7 @@ function restart() {
   card2 = "";
 	document.querySelector(".moves").innerText = "0";
 	returnStars();
-  document.querySelector(".winPage").className = "winPage closed";
+  document.querySelector(".winBox").className = "winBox closed";
 
 	let cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
 	cards = shuffle(cards);
@@ -156,11 +155,11 @@ function win() {
  document.querySelector(".starsCount").innerText = document.getElementsByClassName("fa-star").length;
  document.querySelector(".finalTime").innerText = document.querySelector('#timer').innerHTML;
 
- //Collect cards to check if all are open and match:
+ //Collect cards to check if all are open match:
 
  let matchingCards = document.getElementsByClassName('card match open show');
  if (matchingCards.length == 16) {
-   setTimeout (function() {document.querySelector(".winPage").className = "winPage"}, 1000);
+   setTimeout (function() {document.querySelector(".winBox").className = "winBox"}, 1000);
    stopTimer = true;
  }
 }
