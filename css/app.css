@@ -107,3 +107,41 @@ h1 {
     float: right;
     cursor: pointer;
 }
+.restart button {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.winPage {
+  z-index: 1000;
+  top: 35%;
+  left: 50%;
+  border-style: solid;
+  border-radius: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 370px;
+    opacity: 1;
+    transition: 1s;
+  animation-name: animatetop;
+  animation-duration: 0.25s;
+  animation-timing-function: linear;
+}
+
+.winPage.closed {
+    display: none;
+    z-index: 1;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
