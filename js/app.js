@@ -4,10 +4,10 @@ alert ('jsfileloaded');
 
 //Set up the varibles
 
-let card1 = '';
-let card2 = '';
-let card1Parent = '';
-let card2Parent = '';
+let firstCard = '';
+let secondCard = '';
+let firstCardParent = '';
+let secondCardParent = '';
 let ready = true; 
 let stopTimer = false;
 let cardCounter = 0; 
@@ -18,7 +18,6 @@ document.querySelector(".deck").addEventListener("click", function() {stopTimer 
 document.querySelector(".deck").addEventListener("click", cardOpen);
 document.querySelector(".playAgain").addEventListener("click", function() {
   document.querySelector(".winPage").className = "winPage closed"; restart()});
-
 
 //  * Display the cards on the page
 //  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -34,38 +33,38 @@ function cardOpen(evt) {
 	
 //Determines card order when unlocked
 
-if (card1 == false) {
-	card1 = evt.target.firstElementChild.className; 
-	card1Parent = evt.target; 
+if (firstCard == false) {
+	firstCard = evt.target.firstElementChild.className; 
+	firstCardParent = evt.target;
 	cardCounter = 1; 
 } else {
 	document.querySelector(".moves").innerText = +document.querySelector(".moves").innerText + 1;
 
 //rating systems start decrease depending on number of moves 
   
-  if (document.querySelector(".moves").innerText == '16' || document.querySelector(".moves").innerText == '22') {
+  if (document.querySelector(".moves").innerText == '15' || document.querySelector(".moves").innerText == '25') {
         document.querySelector(".fa-star").parentNode.removeChild(document.querySelector(".fa-star"));
       }
 
-      card2 = evt.target.firstElementChild.className; 
-      card2Parent =evt.target; 
+      secondCard = evt.target.firstElementChild.className; 
+      secondCardParent = evt.target; 
       cardCounter = 2; 
 
       //card matching
 
-      if (card1 == card2) {
-      	card1Parent.className = "card open show match";
-      	card2Parent.className = "card open show match";
-      	card1 = '';
-      	card2 = '';
+      if (firstCard == secondCard) {
+      	firstCardParent.className = "card open show match";
+      	secondCardParent.className = "card open show match";
+      	firstCard = '';
+      	secondCard = '';
       	cardCounter = 0; 
       	win ();
      }else {
      	setTimeout(function () {
-          evt.target.className = "card close"; card1Parent.className = "card close"}, 700);
+          evt.target.className = "card close"; firstCardParent.className = "card close"}, 700);
      	setTimeout(function () {
-     		evt.target.className = "card"; card1Parent.className = "card";
-     				card1 = ''; card2 = ''; cardCounter = 0}, 900);
+     		evt.target.className = "card"; firstCardParent.className = "card";
+     				firstCard = ''; secondCard = ''; cardCounter = 0}, 900);
      	}
      }
 ready = false; 
@@ -75,8 +74,8 @@ ready = false;
 
 
 function restart() {
-  card1 = "";
-  card2 = "";
+  firstCard = "";
+  secondCard = "";
 	document.querySelector(".moves").innerText = "0";
 	returnStars();
   document.querySelector(".winBox").className = "winBox closed";
