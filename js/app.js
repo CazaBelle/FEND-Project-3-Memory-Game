@@ -2,6 +2,8 @@ console.log ('jsfileloaded');
 
 alert ('jsfileloaded');
 
+let cards = '';
+
 //Set up the varibles
 
 let firstCard = '';
@@ -25,7 +27,29 @@ document.querySelector(".playAgain").addEventListener("click", function() {
 //  *   - add each card's HTML to the page
 //  
 
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+
+}
+debugger;
 //Unlocks clicked cards
+
+// Rating system renewal
+
+
+
 
 function cardOpen(evt) {
 	if (evt.target.className =="card" && cardCounter != 2) {
@@ -73,15 +97,26 @@ ready = false;
 }
 
 
+function returnStars() {
+  while (document.getElementsByClassName("fa-star").length != 3) {
+    var newStar = document.createElement("li");
+    newStar.className = "fa fa-star";
+    document.querySelector(".stars").appendChild(newStar);
+  }
+
+}
+
 function restart() {
   firstCard = "";
   secondCard = "";
 	document.querySelector(".moves").innerText = "0";
 	returnStars();
-  document.querySelector(".winBox").className = "winBox closed";
+  document.querySelector(".winPage").className = "winPage closed";
 
 	let cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+	debugger;
 	cards = shuffle(cards);
+	debugger;
 	const deck = document.querySelector(".deck");
 
 	for (let i = 0; i < cards.length; i++) {
@@ -93,21 +128,7 @@ function restart() {
   stopTimer = true;
 
  }
-
-// // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
+ debugger;
 
 
 // Timer
