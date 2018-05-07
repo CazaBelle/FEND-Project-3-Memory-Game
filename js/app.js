@@ -43,7 +43,7 @@ function shuffle(array) {
     return array;
 
 }
-debugger;
+
 //Unlocks clicked cards
 
 // Rating system renewal
@@ -114,9 +114,9 @@ function restart() {
   document.querySelector(".winPage").className = "winPage closed";
 
 	let cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
-	debugger;
+	
 	cards = shuffle(cards);
-	debugger;
+
 	const deck = document.querySelector(".deck");
 
 	for (let i = 0; i < cards.length; i++) {
@@ -128,7 +128,7 @@ function restart() {
   stopTimer = true;
 
  }
- debugger;
+
 
 
 // Timer
