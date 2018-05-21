@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-* [How The Game Works](#How the game work)
-* [Code Dependencies](#code dependencies)
+*[How The Game Works](#Howthegamework)
+*[Code Dependencies](#codedependencies)
 
 # How The Game Works
 The game board consists of sixteen "cards" arranged in a grid. The deck is made up of eight different pairs of cards, each with different icons on one side. The cards are arranged randomly on the grid with the icons faced down.
