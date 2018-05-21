@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-*[How The Game Works](#Howthegamework)
-*[Code Dependencies](#codedependencies)
+* [How The Game Works](#Howthegamework)
+* [Code Dependencies](#codedependencies)
 
 # How The Game Works
 The game board consists of sixteen "cards" arranged in a grid. The deck is made up of eight different pairs of cards, each with different icons on one side. The cards are arranged randomly on the grid with the icons faced down.
@@ -17,6 +17,6 @@ If the cards do not match, both cards are flipped face down.
 The game ends once all cards have been correctly matched.
 
 # Code Dependencies
-Project Memory Game - Starter Code provided by Udacity
-Symbols: FontAwesome
-Fonts: Google Fonts
+* Project Memory Game - Starter Code provided by Udacity
+* Symbols: FontAwesome
+* Fonts: Google Fonts
